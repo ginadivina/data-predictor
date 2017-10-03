@@ -1,0 +1,25 @@
+{% extends "index.html" %}
+{% block title %} - Search Results{% endblock %}
+{% block heading %} - Search Results{% endblock %}
+{% block content %}
+<form method="POST" action="/search" id="search-terms">
+    <div>
+        <label for="query">Search terms</label>
+        <input id="query" name="query" type="search" 
+            {% if terms is defined %}
+                value="{{ terms }}"
+            {% else %}
+                placeholder="Input search terms here"
+            {% endif %}
+        autofocus />
+    </div>
+    <div><input type="submit" /></div>
+</form>
+<section>
+	{% if credits.classification == 0 %}
+		<p> Bad Customer </p>
+	{% else %}
+		<p> Good Customer </p>
+	{% endif %}
+</section>
+{% endblock %}
