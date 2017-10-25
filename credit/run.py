@@ -29,7 +29,7 @@ def do_admin_login():
 	if result:
 		session['logged_in'] = True
 	else:
-		flash('wrong password!')
+		return render_template("404.html")
 	return index()
 
 @app.route("/logout")
